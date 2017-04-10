@@ -2,7 +2,7 @@
 
 	include '../connection/dbCon.php';
 
-	$facultName = array(
+/*	$facultName = array(
 			"Aparajita Ojha", "Atul Gupta", "Ayan Seal",
 			"Kusum Kumari Bharti", "Manish Kumar Bajpai",
 			"Pritee Khanna", "Ruchir Gupta", "Sraban Kumar Mohanty",
@@ -38,21 +38,36 @@
 	mysql_query($query);
 }*/
 
+
 	$courseCode = array(
 
-	"NS101", "NS102", "HS101", "ES101", "ES102", "PR101"
+	"NS101", "NS102", "HS101", "ES101", "ES102", "PR101", "ES204", "MN201", "ME201", "EC201", "CS201","NS205d", "NS205e", "NS205h", "NS205i", "NS205j", "EC202", "ME202", "CS202", "PR201"
 
 
 	);
 	$courseName = array(
 
-	"Mathematics", "Engineering Mechanics", "Effective Communication Skills", "Fundamentals of Electrical & Electronics Engineering", "Fundamentals of Computing", "project"
+	"Mathematics", "Engineering Mechanics", "Effective Communication Skills", "Fundamentals of Electrical & Electronics Engineering", "Fundamentals of Computing", "project", "Digital Electronics", "Manufacturing Process", "Kinematics and Dynamics of Machine", "Electronic Devices and Circuits", "DBMS","Applied Probability and statistics", "Numerical Methods","Material Science", "Culture and Science-a Comparison", "Mathematical Physics", "Instrumentation and Measurement",
+		"IT Workshop", "OOPs with java", "project"
 
 	);
 
-	$courseInstructor = array(
+	$semester = array(
+		1, 1, 1, 1, 1, 1,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+		);
+	$optional = array(
+		0, 1, 2, 3, 4, 5, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3,4,4,4,5
+		);
+	$branch = array(
+		"ALL", "ALL", "ALL", "ALL","ALL", "ALL", "ALL", "ALL", "ME", "ECE", "CSE", "ALL", "ALL", "ALL", "ALL", "ALL",
+		"ECE", "ME", "CSE","ALL"
+		);
 
-		"Nihar Kumar Mahato | Deepmala", "Mukesh Kumar Roy | Yashpal Singh Katharria", ""
+	for($i=0;$i<sizeof($courseCode); $i++){
 
-	);
+		$query = "insert into coursesdetails(courseName, courseCode, semester,  branch) values('$courseName[$i]', '$courseCode[$i]', '$semester[$i]', '$branch[$i]')";
+		mysql_query($query);
+	}
+
+	
 ?>

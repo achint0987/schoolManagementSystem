@@ -19,7 +19,7 @@
               <a href="Home.php">
                 <i class="glyphicon glyphicon-home"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-            </li>
+            </li> 
 
             <li class="treeview">
               <a href="profile.php">
@@ -33,7 +33,7 @@
               </a>
              </li>
             <li class="treeview">
-              <a href="#">
+              <a href="subject.php">
                 <i class="fa fa-laptop"></i><span>Subject</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>

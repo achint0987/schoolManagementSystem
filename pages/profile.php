@@ -13,9 +13,6 @@
 
       <?php include '../includes/HomeSidebar.php';?>
 
-
-      <?php include '../includes/ProfileContent.php'; ?>
-
       <?php include '../includes/ProfileDetails.php';?>
 
       <?php include'../includes/HomeBottom.php'; ?>
