@@ -36,7 +36,7 @@
 {
 	$query = "insert into faculty(Name, Email) values('$facultName[$i]', '$facultyEmail[$i]')";
 	mysql_query($query);
-}*/
+}
 
 
 	$courseCode = array(
@@ -69,5 +69,24 @@
 		mysql_query($query);
 	}
 
+	$courseCode = array(
+
+	"NS101", "NS102", "HS101", "ES101", "ES102", "PR101", "ES204", "MN201", "ME201", "EC201", "CS201","NS205d", "NS205e", "NS205h", "NS205i", "NS205j", "EC202", "ME202", "CS202", "PR201"
+
+
+	);
+
+	$facultyEmail = array(
+			"nihar|deepmala", "mkroy|yashpalk", "manand", "prabin16|dineshk", "ayan", "","b.mukherjee","chella|zahid", "tanush","dineshk","pkhanna", "bhupen", "gd","neeraj","manand","amresh","skjain","aks","kkb","tanush"
+		);
+
+	for($i=0;$i<sizeof($courseCode); $i++){
+
+		$query = "insert into facultyCourses(courseCode, facultyEmail) values('$courseCode[$i]','$facultyEmail[$i]')";
+		mysql_query($query);
+	}
 	
+	*/
+
+	//INSERT INTO `grades` (`rollno`, `NS101`, `NS102`, `HS101`, `ES101`, `ES102`, `PR101`, `ES204`, `MN201`, `ME201`, `EC201`, `CS201`, `NS205d`, `NS205e`, `NS205h`, `NS205i`, `NS205J`, `EC202`, `ME202`, `CS202`, `PR201`) VALUES ('2015002', 'A', 'A+', 'B+', 'C', 'D', 'C+', 'D+', 'D+', 'A+', 'A+', 'B', 'B+', 'C', 'C+', 'D+', 'D+', 'A', 'A+', 'B', 'B+');
 ?>

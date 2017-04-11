@@ -28,7 +28,7 @@
             </li>
 
             <li class="treeview">
-              <a href="#">
+              <a href="grades.php">
                 <i class="fa fa-pie-chart"></i><span>Grades</span><i class="fa fa-angle-left pull-right"></i>
               </a>
              </li>

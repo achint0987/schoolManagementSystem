@@ -13,8 +13,8 @@
 
       <?php include '../includes/HomeSidebar.php';?>
 
-
-      <?php include '../includes/GradeContent.php'; ?>
+      <?php include '../includes/GradeContent.php';?>
+      
 
       <?php include'../includes/HomeBottom.php'; ?>
 
