@@ -57,36 +57,41 @@
                             <td>PERCENTAGE</td>
 
                           </tr>";
-                    
-                    foreach($actual as $k => $val){
-                      if(isset($_GET['semester'])){
-                          $sem = $_GET['semester'];
-                          $query = "select * from coursesdetails where courseCode = '$k' AND semester='$sem'";
-                        }else{
-                          $query = "select * from coursesdetails where courseCode = '$k' AND semester='$semester'";
-                        }
-                      $runQuery = mysql_query($query);
-                      $row = mysql_fetch_array($runQuery);
-                      $x;$y;$z;
-                    
-                      if(strpos($val,"|") != false){
-                        $x = strpos($val, "|");
-                        $y = substr($val, 0, $x);
-                        $z = substr($val, $x+1, strlen($val));
-                      }
-                     
-                      $percent = $y/$z*100;
+                    if($_SESSION['rollno'] == $row['rollno']){
+                        foreach($actual as $k => $val){
+                          if(isset($_GET['semester'])){
+                              $sem = $_GET['semester'];
+                              $query = "select * from coursesdetails where courseCode = '$k' AND semester='$sem'";
+                            }else{
+                              $query = "select * from coursesdetails where courseCode = '$k' AND semester='$semester'";
+                            }
+                          $runQuery = mysql_query($query);
+                          $row = mysql_fetch_array($runQuery);
+                          $x;$y;$z;
+                        
+                          if(strpos($val,"|") != false){
+                            $x = strpos($val, "|");
+                            $y = substr($val, 0, $x);
+                            $z = substr($val, $x+1, strlen($val));
+                          }
+                         
+                          $percent = $y/$z*100;
 
-                      if($row!=0)
-                        echo "<tr class='success'>
-                                <td>".$k."</td>
-                                <td>".$row['courseName']."</td>
-                                <td>".$y."</td>
-                                <td>".$z."</td>
-                                <td>".round($percent,2)."</td>
-                              </tr>";
-                      
-                    }
+                          if($row!=0)
+                            echo "<tr class='success'>
+                                    <td>".$k."</td>
+                                    <td>".$row['courseName']."</td>
+                                    <td>".$y."</td>
+                                    <td>".$z."</td>
+                                    <td>".round($percent,2)."</td>
+                                  </tr>";
+                          
+                        }
+
+                        }else{
+                          echo "<center><h3><div class='container'><div class='well'>Grades Not Update Yet</div></div></h3></center>";
+                        }
+                    
                     
                     
 

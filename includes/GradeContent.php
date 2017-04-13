@@ -65,51 +65,58 @@
                           </tr>";
                     $totalGrade = 0;
                     $totalCredit =0;
-                    foreach($actual as $k => $val){
-                      if(isset($_GET['semester'])){
-                          $sem = $_GET['semester'];
-                          $query = "select * from coursesdetails where courseCode = '$k' AND semester='$sem'";
-                        }else{
-                          $query = "select * from coursesdetails where courseCode = '$k' AND semester='$semester'";
+                  
+                    if($_SESSION['rollno'] == $row['rollno']){
+                      foreach($actual as $k => $val){
+                        if(isset($_GET['semester'])){
+                            $sem = $_GET['semester'];
+                            $query = "select * from coursesdetails where courseCode = '$k' AND semester='$sem'";
+                          }else{
+                            $query = "select * from coursesdetails where courseCode = '$k' AND semester='$semester'";
+                          }
+                        $runQuery = mysql_query($query);
+                        $row = mysql_fetch_array($runQuery);
+
+                        $totalCredit = $totalCredit + $row['grade'];
+
+                        if($val == 'A+'){
+                          $totalGrade = $totalGrade + 10* $row['grade'];
+                        }else if($val == 'A'){
+                          $totalGrade = $totalGrade + 9* $row['grade'];
+                        }else if($val == 'B+'){
+                          $totalGrade = $totalGrade + 8* $row['grade'];
+                        }else if($val == 'B'){
+                          $totalGrade = $totalGrade + 7* $row['grade'];
+                        }else if($val == 'C+'){
+                          $totalGrade = $totalGrade + 6* $row['grade'];
+                        }else if($val == 'C'){
+                          $totalGrade = $totalGrade + 5* $row['grade'];
+                        }else if($val == 'D+'){
+                          $totalGrade = $totalGrade + 4* $row['grade'];
+                        }else if($val == 'D'){
+                          $totalGrade = $totalGrade + 4* $row['grade'];
+                        }else if($val == 'F'){
+                          $totalGrade = $totalGrade + 2* $row['grade'];
                         }
-                      $runQuery = mysql_query($query);
-                      $row = mysql_fetch_array($runQuery);
 
-                      $totalCredit = $totalCredit + $row['grade'];
-
-                      if($val == 'A+'){
-                        $totalGrade = $totalGrade + 10* $row['grade'];
-                      }else if($val == 'A'){
-                        $totalGrade = $totalGrade + 9* $row['grade'];
-                      }else if($val == 'B+'){
-                        $totalGrade = $totalGrade + 8* $row['grade'];
-                      }else if($val == 'B'){
-                        $totalGrade = $totalGrade + 7* $row['grade'];
-                      }else if($val == 'C+'){
-                        $totalGrade = $totalGrade + 6* $row['grade'];
-                      }else if($val == 'C'){
-                        $totalGrade = $totalGrade + 5* $row['grade'];
-                      }else if($val == 'D+'){
-                        $totalGrade = $totalGrade + 4* $row['grade'];
-                      }else if($val == 'D'){
-                        $totalGrade = $totalGrade + 4* $row['grade'];
-                      }else if($val == 'F'){
-                        $totalGrade = $totalGrade + 2* $row['grade'];
+                        if($row!=0)
+                          echo "<tr class='success'>
+                                  <td>".$k."</td>
+                                  <td>".$row['courseName']."</td>
+                                  <td>".$val."</td>
+                                </tr>";
+                        
                       }
+                      echo "<tr style='font-size: 18px' class='danger'>
+                                  <td></td>
+                                  <td> SPI</td>
+                                  <td>".round($totalGrade/$totalCredit, 1)."</td>
+                                </tr>";
 
-                      if($row!=0)
-                        echo "<tr class='success'>
-                                <td>".$k."</td>
-                                <td>".$row['courseName']."</td>
-                                <td>".$val."</td>
-                              </tr>";
-                      
-                    }
-                    echo "<tr style='font-size: 18px' class='danger'>
-                                <td></td>
-                                <td> SPI</td>
-                                <td>".round($totalGrade/$totalCredit, 1)."</td>
-                              </tr>";
+                      }else{
+                        echo "<center><h3><div class='container'><div class='well'>Grades Not Update Yet</div></div></h3></center>";
+                      }
+                    
                     
 
                ?>

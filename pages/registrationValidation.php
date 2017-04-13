@@ -56,6 +56,8 @@
 					echo "Data successfuuly inserted into the databse";
 					if(move_uploaded_file($_FILES['image']['tmp_name'], $imageTarget)){
 						echo "Image uploaded successfully";
+
+						header("Location: ../admin/addCourses.php?id=$rollno");
 					}
 				}else{
 					echo "Some problem occured while inserting the data into student table";

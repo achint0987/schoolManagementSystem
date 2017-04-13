@@ -157,6 +157,7 @@
  			echo "<script>alert('Password Doesn\'t match');</script>";
  		}else if($check == 'ohk'){
  			echo "<script>alert('Password successfully Changed');</script>";
+ 			echo "<script>window.location.href= 'profile.php';</script>";
  		}
  	}
 
@@ -170,6 +171,7 @@
 	  	if($runQuery){
 	  		if(move_uploaded_file($_FILES['img']['tmp_name'], $imageTarget)){
 	  			echo "<script>alert('Picture update successfully');</script>";
+	  			echo "<script>window.location.href= 'profile.php';</script>";
 	  		}
 	  	}
  		
@@ -178,6 +180,7 @@
  		$check = updatePhone($_POST['currentPhone'], $_SESSION['rollno']);
  		if($check == 'ohk'){
  			echo "<script>alert('Phone Number successfully Changed');</script>";
+ 			echo "<script>window.location.href= 'profile.php';</script>";
  		}
  	}
 

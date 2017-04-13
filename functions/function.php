@@ -190,5 +190,22 @@
 	}
 
 
+	/* Admin Function starts here */
+
+	function findAdmin($user){
+		$query = "select * from admin where email='$user'";
+		$runQuery = mysql_query($query);
+		$row = mysql_fetch_array($runQuery);
+
+		return $row['fname']." ".$row['lname'] ;
+	}
+
+	function getBranchDetails(){
+		$query = "select * from branch";
+        $runQuery = mysql_query($query);
+		return $runQuery;
+	}
+
+
 
  ?>
