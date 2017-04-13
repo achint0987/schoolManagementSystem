@@ -1,8 +1,16 @@
-    <ol class="breadcrumb ">
+          <ol class="breadcrumb ">
               <li><a href="Home.php"><i class="glyphicon glyphicon-home "></i> Home</a></li>
               <li><a href="subject.php"><i class="glyphicon glyphicon-user active"></i> Subject</a></li>
           </ol>
-          <!-- table to display user profile -->
+          
+          <div class="container">
+            <div class="well">
+                <form method="get">
+                  <input type="number" placeholder="Semester" class="form-control" name="semester" required="required"><br>
+                  <input type="submit" value="Check your subject as per your semester" class="btn btn-block btn-flat btn-primary">
+                </form>
+            </div>
+          </div>
          <div class="container">
            <div class="row well">
           <div class="col-sm-12" id=" tableStyle">
@@ -25,7 +33,13 @@
                    
                    while ($fieldinfo=mysql_fetch_field($runQuery)){
                       if($row[$fieldinfo->name] !=0 && $fieldinfo->name != 'rollno'){
-                        $query1 = "select * from coursesdetails where courseCode = '$fieldinfo->name' AND semester=1";
+                        if(isset($_GET['semester'])){
+                          $sem = $_GET['semester'];
+                          $query1 = "select * from coursesdetails where courseCode = '$fieldinfo->name' AND semester='$sem'";
+                        }else{
+                          $query1 = "select * from coursesdetails where courseCode = '$fieldinfo->name' AND semester='$semester'";
+                        }
+                        
                         $runQuery1 = mysql_query($query1);
                         $row1 = mysql_fetch_array($runQuery1);
                         

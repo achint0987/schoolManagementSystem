@@ -1,16 +1,8 @@
-          <ol class="breadcrumb ">
-              <li><a href="Home.php"><i class="glyphicon glyphicon-home "></i> Home</a></li>
-              <li><a href="subject.php"><i class="glyphicon glyphicon-user active"></i> Subject</a></li>
-          </ol>
-          
-          <div class="container">
-            <div class="well">
-                <form method="get">
-                  <input type="number" placeholder="Semester" class="form-control" name="semester" required="required"><br>
-                  <input type="submit" value="Check your grade as per your semester" class="btn btn-block btn-flat btn-primary">
-                </form>
-            </div>
-          </div>
+        <ol class="breadcrumb ">
+            <li><a href="Home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="attendance.php"><i class="fa fa-dashboard active"></i> Attendance</a></li>
+        </ol>
+
          <div class="container">
            <div class="row well">
           <div class="col-sm-12" id=" tableStyle">
@@ -36,7 +28,7 @@
                         $i++;
                       }
                     }
-                    $query = "select * from grades";
+                    $query = "select * from attendance";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
 
@@ -60,11 +52,12 @@
                     echo "<tr style='font-size: 18px'   class='danger'>
                             <td>COURSE CODE</td>
                             <td>COURSE NAME</td>
-                            <td>GRADES</td>
+                            <td>TOTAL PRESENT</td>
+                            <td>TOTAL CLASS</td>
+                            <td>PERCENTAGE</td>
 
                           </tr>";
-                    $totalGrade = 0;
-                    $totalCredit =0;
+                    
                     foreach($actual as $k => $val){
                       if(isset($_GET['semester'])){
                           $sem = $_GET['semester'];
@@ -74,42 +67,27 @@
                         }
                       $runQuery = mysql_query($query);
                       $row = mysql_fetch_array($runQuery);
-
-                      $totalCredit = $totalCredit + $row['grade'];
-
-                      if($val == 'A+'){
-                        $totalGrade = $totalGrade + 10* $row['grade'];
-                      }else if($val == 'A'){
-                        $totalGrade = $totalGrade + 9* $row['grade'];
-                      }else if($val == 'B+'){
-                        $totalGrade = $totalGrade + 8* $row['grade'];
-                      }else if($val == 'B'){
-                        $totalGrade = $totalGrade + 7* $row['grade'];
-                      }else if($val == 'C+'){
-                        $totalGrade = $totalGrade + 6* $row['grade'];
-                      }else if($val == 'C'){
-                        $totalGrade = $totalGrade + 5* $row['grade'];
-                      }else if($val == 'D+'){
-                        $totalGrade = $totalGrade + 4* $row['grade'];
-                      }else if($val == 'D'){
-                        $totalGrade = $totalGrade + 4* $row['grade'];
-                      }else if($val == 'F'){
-                        $totalGrade = $totalGrade + 2* $row['grade'];
+                      $x;$y;$z;
+                    
+                      if(strpos($val,"|") != false){
+                        $x = strpos($val, "|");
+                        $y = substr($val, 0, $x);
+                        $z = substr($val, $x+1, strlen($val));
                       }
+                     
+                      $percent = $y/$z*100;
 
                       if($row!=0)
                         echo "<tr class='success'>
                                 <td>".$k."</td>
                                 <td>".$row['courseName']."</td>
-                                <td>".$val."</td>
+                                <td>".$y."</td>
+                                <td>".$z."</td>
+                                <td>".round($percent,2)."</td>
                               </tr>";
                       
                     }
-                    echo "<tr style='font-size: 18px' class='danger'>
-                                <td></td>
-                                <td> SPI</td>
-                                <td>".round($totalGrade/$totalCredit, 1)."</td>
-                              </tr>";
+                    
                     
 
                ?>
@@ -119,6 +97,6 @@
               
            </div>
         </div>
-
-        </section>
-      </div>
+        
+      </section>
+    </div>

@@ -5,23 +5,25 @@
           <!-- table to display user profile -->
 
          	<div class="container">
-         		<form method="post" action="searchUser.php">
-					<div class="form-group">
-						<label for="email">Search User:</label>
-						<input type="text" name="user1" class="form-control" required="required">
-					</div>
-				    <button style="display: block; width: 100%;" type="submit" class="btn btn-success" name="search">Search</button>
-				</form>
-         	</div><br>
-         	<div class="container">
-         		<?php
-         			if(isset($_POST['user'])){
-         				$value = findSearchedUser($_POST['user'], $_SESSION['rollno']);
-         				
-         				echo $value;
-         			}
+         		<div class="well">
+             <form method="post" action="searchUser.php">
+              <div class="form-group">
+                <label for="email">Search User:</label>
+                <input type="text" name="user1" class="form-control" required="required">
+              </div>
+                <button type="submit" class="btn btn-block btn-flat btn-primary" name="search">Search</button>
+            </form>
+              </div><br>
+              <div class="container">
+                <?php
+                  if(isset($_POST['user'])){
+                    $value = findSearchedUser($_POST['user'], $_SESSION['rollno']);
+                    
+                    echo $value;
+                  }
 
-         		?>
+                ?> 
+            </div>
          	</div>
 
         </section>

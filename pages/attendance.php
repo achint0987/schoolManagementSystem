@@ -13,7 +13,8 @@
 
       <?php include '../includes/HomeSidebar.php';?>
 
-      <?php include '../includes/userDetails.php';?>
+      <?php include '../includes/AttendanceContent.php';?>
+      
 
       <?php include'../includes/HomeBottom.php'; ?>
 

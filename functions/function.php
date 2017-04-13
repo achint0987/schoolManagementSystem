@@ -9,7 +9,7 @@
 
 	    return $value;
 	}
-
+  
 	  
 	// function to get user firstname and lastname
 	function findUser($rollno){
@@ -80,6 +80,15 @@
 
 	  	return $row['Branch'];
 
+	}
+	//function to get rollno
+	function getSemester($rollno){
+		$query = "select Semester from studentDetails where RollNo = '$rollno'";
+	  	$runQuery = mysql_query($query);
+
+	  	$row = mysql_fetch_array($runQuery);
+
+	  	return $row['Semester'];
 	}
 
 	//function to get Batch
@@ -152,7 +161,7 @@
 		if($runQuery){
 			$x=move_uploaded_file($image, $imageTarget);
 			if($x){
-				echo "<script>alert('oholk')</script>";
+				echo "<script>alert('ohk')</script>";
 			}
 		}
 

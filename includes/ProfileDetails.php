@@ -4,7 +4,7 @@
           </ol>
           <!-- table to display user profile -->
          <div class="container">
-           <div class="row">
+           <div class="row well">
            		<div class="col-sm-4">
            			<img class="imageStyle" src=<?php echo findPic($_SESSION['rollno']);?>  alt="User Image">
            		</div>
@@ -55,9 +55,9 @@
         <!-- End of table -->
         <!-- Use of modals to change password, image and contact -->
         <div class="container">
-        	<div class="row">
-        		<div class="col-xs-2">
-        			<button class="btn btn-primary btn-flat btn-wide" data-toggle="modal" data-target="#changePic">Change Picture</button>
+        	<div class="row well">
+        		<div class="col-xs-4">
+        			<button class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#changePic">Change Picture</button>
         			<div class="modal fade" id="changePic" role="dialog">
 					    <div class="modal-dialog">
 					      <div class="modal-content">
@@ -81,8 +81,8 @@
 					    </div>
 				    </div>
         		</div>
-        		<div class="col-xs-2">
-        			<button class="btn btn-primary btn-flat btn-wide" data-toggle="modal" data-target="#changePass">Change Password</button>
+        		<div class="col-xs-4">
+        			<button class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#changePass">Change Password</button>
         			<div class="modal fade" id="changePass" role="dialog">
 					    <div class="modal-dialog">
 					      <div class="modal-content">
@@ -113,8 +113,8 @@
 					      </div>
 					      </div>
 					    </div>
-					    <div class="col-xs-2">
-		        		<button class="btn btn-primary btn-flat btn-wide" data-toggle="modal" data-target="#changePhone">Change Phone</button>
+					    <div class="col-xs-4">
+		        		<button class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#changePhone">Change Phone</button>
 		        			<div class="modal fade" id="changePhone" role="dialog">
 							    <div class="modal-dialog">
 							      <div class="modal-content">

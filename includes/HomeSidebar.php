@@ -38,30 +38,18 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="attendance.php">
                 <i class="fa fa-edit"></i> <span>Attendance</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="searchUser.php">
                 <i class="fa fa-table"></i> <span>Student</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
             <li>
               <a href="pages/calendar.html">
                 <i class="fa fa-calendar"></i> <span>Exam</span><i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
-            <li>
-              <a href="pages/mailbox/mailbox.html">
-                <i class="fa fa-envelope"></i> <span>Payments</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-share"></i> <span>Students Attendance</span>
-                <i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
           </ul>
@@ -74,9 +62,9 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <center>
-            <h1 class="headerFont">
-              PDPM IIITDM 
-              <small></small>
+            <h1 class="headerFont container">
+              <div class="well"> PDPM IIITDM  </div>
+             
             </h1>
           </center>
         </section>
