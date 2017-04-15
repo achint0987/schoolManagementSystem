@@ -1,5 +1,4 @@
 <?php
-  header('Location: register.php');
   session_start();
   include '../connection/dbCon.php';
   include '../functions/function.php';
@@ -14,8 +13,10 @@
 
       <?php include 'HomeSidebar.php';?>
 
-      <?php include 'HomeContent.php';?>
+      <?php include 'RegisterAdmin.php';?>
 
       <?php include'HomeBottom.php'; ?>
 
 <?php }else echo "Connection failed"?>
+
+    

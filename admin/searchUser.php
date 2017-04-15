@@ -1,12 +1,27 @@
-		<ol class="breadcrumb ">
+<?php
+  session_start();
+  include '../connection/dbCon.php';
+  include '../functions/function.php';
+
+  if(isset($_SESSION['rollno'])){
+
+      include 'head.php';
+    ?>
+
+
+      <?php include 'HomeHeader.php'; ?>
+
+      <?php include 'HomeSidebar.php';?>
+
+          <ol class="breadcrumb ">
               <li><a href="Home.php"><i class="glyphicon glyphicon-home "></i> Home</a></li>
               <li><a href="Profile.php"><i class="glyphicon glyphicon-user active"></i> Profile</a></li>
           </ol>
-          <!-- table to display user profile -->
+          
 
-         	<div class="container">
-         		<div class="well">
-             <form action="searchUser.php" method="post" class="sidebar-form">
+          <div class="container">
+            <div class="well">
+             <form action="searchUser.php" method="post">
                 <div class="input-group">
                   <input type="text" name="user" class="form-control" placeholder="Search User...">
                   <span class="input-group-btn">
@@ -54,10 +69,7 @@
                     }else{
                       echo "not ";
                     }
-                    
-                  }
-
-                ?> 
+                  } ?> 
                 </tbody>
               </table>
             </div>
@@ -66,3 +78,9 @@
         </section>
       </div>
 
+
+      <?php include'HomeBottom.php'; ?>
+
+
+
+<?php }else echo "Connection failed"?>

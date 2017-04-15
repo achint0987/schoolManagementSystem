@@ -20,8 +20,8 @@
                <?php 
                     $semester = getSemester($_SESSION['rollno']);
                     $branch   = getBranch($_SESSION['rollno']);
-
-                    $query = "select * from courses ";
+                    $roll =$_SESSION['rollno'];
+                    $query = "select * from courses where rollno ='$roll'";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
                     echo "<tr style='font-size: 18px'  class='danger'>
@@ -30,7 +30,9 @@
                             <td>FACULTY</td>
 
                           </tr>";
+            
                    if($_SESSION['rollno'] == $row['rollno']){
+
                         while ($fieldinfo=mysql_fetch_field($runQuery)){
                           if($row[$fieldinfo->name] !=0 &&  $fieldinfo->name != 'rollno'){
                             if(isset($_GET['semester'])){

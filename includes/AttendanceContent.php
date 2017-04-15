@@ -3,6 +3,15 @@
             <li><a href="attendance.php"><i class="fa fa-dashboard active"></i> Attendance</a></li>
         </ol>
 
+          <div class="container">
+            <div class="well">
+                <form method="get">
+                  <input type="number" placeholder="Semester" class="form-control" name="semester" required="required"><br>
+                  <input type="submit" value="Check your attendance as per your semester" class="btn btn-block btn-flat btn-primary">
+                </form>
+            </div>
+          </div>
+
          <div class="container">
            <div class="row well">
           <div class="col-sm-12" id=" tableStyle">
@@ -13,8 +22,9 @@
                     $semester = getSemester($_SESSION['rollno']);
                     $branch   = getBranch($_SESSION['rollno']);
 
-
-                    $query = "select * from courses";
+                    $roll = $_SESSION['rollno'];
+                    
+                    $query = "select * from courses where rollno='$roll'";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
 
@@ -28,7 +38,7 @@
                         $i++;
                       }
                     }
-                    $query = "select * from attendance";
+                    $query = "select * from attendance where rollno='$roll'";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
 
@@ -89,7 +99,7 @@
                         }
 
                         }else{
-                          echo "<center><h3><div class='container'><div class='well'>Grades Not Update Yet</div></div></h3></center>";
+                          echo "<center><h3><div class='container'>Attendance Not Update Yet</div></h3></center>";
                         }
                     
                     

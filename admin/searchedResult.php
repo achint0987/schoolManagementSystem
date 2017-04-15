@@ -13,17 +13,14 @@
 
       <?php include 'HomeSidebar.php';?>
 
-      <?php $roll = $_GET['id'];
-          
-          ?>
+      <?php $roll = $_GET['id']?>
 
         <ol class="breadcrumb ">
             <li><a href="Home.php"><i class="fa fa-dashboard active"></i> Home</a></li>
             <li><a href="students.php"><i class="fa fa-dashboard"></i> Students</a></li>
         </ol>
-        
           <div class="container">
-           <div class="row well">  
+           <div class="row well">
               <div class="col-sm-4">
                 <img class="imageStyle" src=<?php echo findPic($roll);?>  alt="User Image">
               </div>
@@ -308,7 +305,32 @@
                       </div>
                     </div>
                     <div class="col-xs-4">
-                      <a href='addStudentCourses.php?id=<?php echo $roll; ?> 'class='btn btn-success btn-flat btn-block'>Add Courses</a>
+                      <button class="btn btn-primary btn-flat btn-block" data-toggle="modal" data-target="#changePhone">Change Phone</button>
+                        <div class="modal fade" id="changePhone" role="dialog">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Change Your Contact</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>
+                              <form method="post">
+                            <div class="form-group">
+                              <label for="email">New Phone Number:</label>
+                              <input type="text" name="currentPhone" class="form-control" required="required">
+                            </div>
+                                </p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" name="phone">Update</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                              </form>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
                   </div>
 
                   </div>

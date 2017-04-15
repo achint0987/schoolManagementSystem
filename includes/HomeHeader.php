@@ -1,7 +1,7 @@
  <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 <header class="main-header">
-        <a href="index2.html" class="logo">
+        <a href="Home.php" class="logo">
           <span class="logo-mini"><b>U</b>MS</span>
           <span class="logo-lg"><b>IIITDMJ </b> UMS</span>
         </a>

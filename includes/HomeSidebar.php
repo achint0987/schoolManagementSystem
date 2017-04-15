@@ -21,6 +21,7 @@
               </a>
             </li> 
 
+            w
             <li class="treeview">
               <a href="profile.php">
                 <i class="glyphicon glyphicon-user"></i> <span>Profile</span> <i class="fa fa-angle-left pull-right"></i>
@@ -48,8 +49,8 @@
               </a>
             </li>
             <li>
-              <a href="pages/calendar.html">
-                <i class="fa fa-calendar"></i> <span>Exam</span><i class="fa fa-angle-left pull-right"></i>
+              <a href="event.php">
+                <i class="fa fa-calendar"></i> <span>Event</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
           </ul>

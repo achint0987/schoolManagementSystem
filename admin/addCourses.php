@@ -58,7 +58,7 @@
                      <td>SELECT</td>
                    </tr>
                    <form method='POST'>
-                   <?php 
+                 <?php 
                       while($row = mysql_fetch_array($runQuery)){
                         echo "<tr class='success' style='font-size: 16px'>
                                 <td>".$row['courseCode']."</td>
@@ -66,7 +66,7 @@
                                 <td><input type='checkbox' style='width: 20px; height: 20px;' value=".$row['courseCode']." name='filling[]'></td>
                               </tr>";
                       }
-                   ?>
+                   ?>  
                   <tr>
                     <td></td>
                     <td><button name="btn" class="btn btn-primary btn-block">Add Courses</button></td>

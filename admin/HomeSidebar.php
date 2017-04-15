@@ -10,11 +10,12 @@
 
 
           <ul class="sidebar-menu">
-            <li class="active treeview">
-              <a href="Home.php">
-                <i class="glyphicon glyphicon-home"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
+            <li class="treeview">
+              <a href="admin.php">
+                <i class="glyphicon glyphicon-education"></i> <span>Admin Edit/Add</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
-            </li> 
+            </li>
+
 
             <li class="treeview">
               <a href="register.php">
@@ -23,7 +24,7 @@
             </li>
 
             <li class="treeview">
-              <a href="grades.php">
+              <a href="studentGrades.php">
                 <i class="fa fa-pie-chart"></i><span>Grades</span><i class="fa fa-angle-left pull-right"></i>
               </a>
              </li>
@@ -33,7 +34,7 @@
               </a>
             </li>
             <li class="treeview">
-              <a href="attendance.php">
+              <a href="studentAttendance.php">
                 <i class="fa fa-edit"></i> <span>Attendance</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
@@ -43,18 +44,30 @@
               </a>
             </li>
             <li>
-              <a href="pages/calendar.html">
-                <i class="fa fa-calendar"></i> <span>Exam</span><i class="fa fa-angle-left pull-right"></i>
+              <a href="event.php">
+                <i class="fa fa-calendar"></i> <span>Events</span><i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
+
+            <li class="treeview">
+              <a href="courses.php">
+                <i class="glyphicon glyphicon-book"></i> <span>Courses</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="addTimeTable.php">
+                <i class="glyphicon glyphicon-book"></i> <span>Time Table</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+            </li>
+
           </ul>
         </section>
     
       </aside>
 
-      <!-- Content Wrapper. Contains page content -->
+      
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        
         <section class="content-header">
           <center>
             <h1 class="headerFont container">

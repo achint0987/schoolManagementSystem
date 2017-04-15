@@ -21,8 +21,8 @@
                     $semester = getSemester($_SESSION['rollno']);
                     $branch   = getBranch($_SESSION['rollno']);
 
-
-                    $query = "select * from courses";
+                    $roll = $_SESSION['rollno'];
+                    $query = "select * from courses where rollno = '$roll'";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
 
@@ -36,7 +36,7 @@
                         $i++;
                       }
                     }
-                    $query = "select * from grades";
+                    $query = "select * from grades where rollno = '$roll'";
                     $runQuery = mysql_query($query);
                     $row = mysql_fetch_array($runQuery);
 
@@ -74,6 +74,7 @@
                           }else{
                             $query = "select * from coursesdetails where courseCode = '$k' AND semester='$semester'";
                           }
+                        
                         $runQuery = mysql_query($query);
                         $row = mysql_fetch_array($runQuery);
 

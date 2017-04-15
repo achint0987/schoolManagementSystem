@@ -30,7 +30,7 @@
             </form>
             </div>
         </div>
-                   <div class="container-fluid">
+                   <div class="container">
                      <div class="row well">
                     <div class="col-sm-12" id=" tableStyle">
                     <table class="table table-striped">
@@ -44,7 +44,6 @@
                               }else{
                                 $query = "select * from studentdetails where Semester=1";
                               }
-                              
                               $runQuery = mysql_query($query);
                               
                               if(mysql_num_rows($runQuery) != 0){
@@ -53,7 +52,7 @@
                                       <td>Roll No</td>
                                       <td>NAME</td>
                                       <td>Email</td>
-                                      <td><td>DELETE</td><td>EDIT</td></td>
+                                      <td>ATTENDANCE</td>
                                     </tr>";
                                     ?>
                              <?php
@@ -64,21 +63,15 @@
                                           <td>".$row['RollNo']."</td>
                                           <td>".$row['FirstName']." ". $row['LastName']."</td>
                                           <td>".$row['Email']."</td>
-                                          <td>
-
-                                            <td>
-                                            <form method='get' action='delete.php' onsubmit='return confirm()'>
-                                              <button class='btn btn-xs' name='id' value=".$row['RollNo']."><i class='glyphicon glyphicon-remove'></i></button>
+                                        <td>
+                                            <form method='get' action='attendance.php'>
+                                              <button class='btn btn-xs' name='id' value=".$row['RollNo']."><i class='glyphicon glyphicon-pencil'></i></button>
                                               </form>
                                             </td>
-                                            <td>
-                                            <form method='get' action='studentEdit.php'>
-                                              <button class='btn btn-xs' name='id' value=".$row['RollNo']."><i class='glyphicon glyphicon-pencil'></i></button>
-                                            </td>
-                                          </td>
+                                            
                                         </tr>";
                                 }
-                                echo "</form>";
+                                
                               }else{
                               echo "<center><h3><div class='container'>Students Not Found</div></h3></center>";
                              }

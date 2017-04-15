@@ -1,6 +1,7 @@
 <?php
 	if(isset($_GET['id'])){
 		$roll = $_GET['id'];
+		include '../connection/dbCon.php';
 
 		$query = "DELETE  FROM studentdetails where RollNo='$roll'";
 		$runQuery = mysql_query($query);
@@ -18,10 +19,12 @@
 			echo "<script>alert('successfully Deleted');</script>";
 			echo "<script>window.location.href= 'students.php'</script>";
 		}else{
-			echo "not ohk";
+			echo "<script>alert('Unable to delete');</script>";
+			echo "<script>window.location.href= 'students.php'</script>";
 		}
 	}else{
-		echo "Not ohk";
+		echo "<script>alert('Unable to delete');</script>";
+			echo "<script>window.location.href= 'students.php'</script>";
 	}
 
 ?>
